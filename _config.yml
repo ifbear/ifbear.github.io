@@ -69,7 +69,7 @@ kramdown:
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "写写代码，追追剧，看看书。世界那么大，多玩玩看看。记着每天开心哟！"
-sidebar-avatar: avatar-ifbear.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar-ifbear.png     # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
