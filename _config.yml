@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: sundexiong@hotmail.com
 description: "这里是 @koala 的个人博客，与你一起开启逗比的世界"
 keyword: "X个De, 孙德雄, koala, 鬼栈, 孙德雄的博客, koala Blog, 博客, 个人网站, 互联网, Web, JavaScript, React, React Native, 前端, iOS, Objective-C, Swift"
-url: "https://koala.github.io/" # your host, for absolute URL
+url: "https://koala.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
