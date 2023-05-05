@@ -1,11 +1,11 @@
 # Site settings
-title: koala Blog
-SEOTitle: koala的博客 | koala Blog
+title: ifbear Blog
+SEOTitle: ifbear的博客 | ifbear Blog
 header-img: img/home-bg.jpg
 email: sundexiong@hotmail.com
-description: "这里是 @koala 的个人博客，与你一起开启逗比的世界"
-keyword: "X个De, 孙德雄, koala, 鬼栈, 孙德雄的博客, koala Blog, 博客, 个人网站, 互联网, Web, JavaScript, React, React Native, 前端, iOS, Objective-C, Swift"
-url: "https://koala.github.io" # your host, for absolute URL
+description: "这里是 @ifbear 的个人博客，与你一起开启逗比的世界"
+keyword: "X个De, 孙德雄, ifbear, 鬼栈, 孙德雄的博客, ifbear Blog, 博客, 个人网站, 互联网, Web, JavaScript, React, React Native, 前端, iOS, Objective-C, Swift"
+url: "https://ifbear.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
@@ -14,7 +14,7 @@ future: true
 # SNS settings
 RSS: false
 weibo_username: X个De
-github_username: ii00ii
+github_username: ifbear
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
 
@@ -89,5 +89,5 @@ page-mathjax: false
 # Friends
 friends:
   [
-    { title: "X个De", href: "https://github.com/ii00ii" },
+    { title: "X个De", href: "https://github.com/ifbear" },
   ]
