@@ -78,6 +78,7 @@ internal static func dbManagedObjectContext(_ concurrencyType: NSManagedObjectCo
 }
 ```
 同时设置`returnsObjectsAsFaults`为`false`，并改造`NSManagedObjectContext`继承关系后，crash被fix掉。
+大家有更好的方案，可以一起探讨。
 
 ### 后记
 Core Data苹果迭代多年，性能易用性已经不可同日而语，iOS开发的同学再数据持久化选择方案上可以优先考虑。
