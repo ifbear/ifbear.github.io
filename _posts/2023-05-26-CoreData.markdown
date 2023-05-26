@@ -58,7 +58,7 @@ DispatchQueue(label: "thread2").async {
 ```
 这个crash的原因是因为`NSFetchRequest`默认取到的数据是`isFault`(惰值)，在第二个线程中获取到的`obj`对象的数据并没有被填充，log如下：
 > (lldb) po obj
-<Person: 0x281db33e0> (entity: Person; id: 0x8a131193d2f7372b <x-coredata://119BDD54-F921-44E8-8FB9-E5CD11BEA831/Person/p5>; data: <fault>)
+> <Person: 0x281db33e0> (entity: Person; id: 0x8a131193d2f7372b <x-coredata://119BDD54-F921-44E8-8FB9-E5CD11BEA831/Person/p5>; data: <fault>)
 
 `print(obj.abstract)`时因`Person`对象的属性`modified`是`Date`类型，`obj`对象的所有属性值均为`nil`，Swift中`nil转Data造成了crash`。
 
