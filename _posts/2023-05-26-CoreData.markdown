@@ -12,13 +12,13 @@ tags:
 
 # 记一次Core Data崩溃与fix历程
 
-近期我们上线了基于Core Data的app，在分析用户反馈及崩溃日志时发现部分场景下出现了crash现象。
+近期我们上线了基于Core Data的App，在分析用户反馈及崩溃日志时发现部分场景下出现了crash现象。
 
 ### 多线程访问数据
 
-首先，用过Core Data的开发者都知道，Core Data并不是线程安全的，所以再更新访问数据时使用`container.viewContext.perform()` 或者 `container.viewContext.performAndWait()`来保证线程安全，其中前一个是**异步**，后一个是**同步**操作。
+首先，用过Core Data的同学都知道，Core Data并非线程安全，所以开发过程中，有跨线程访问数据时，会采用`container.viewContext.perform()` 或者 `container.viewContext.performAndWait()`来保证线程安全，其中前一个是**异步**，后一个是**同步**操作。
 
-我们开始设计的是所有的`NSManagedObjectContext`都继承自协调器的`NSPersistentContainer.viewContext`。代码如下：
+我们App开始设计的是所有的`NSManagedObjectContext`都继承自协调器的`NSPersistentContainer.viewContext`。代码如下：
 
 ```Swift
 /// dbManagedObjectContext
@@ -32,7 +32,7 @@ internal static func dbManagedObjectContext(_ concurrencyType: NSManagedObjectCo
 	return ctx
 }
 ```
-再日志中发现，如果多线程场景中会crash。代码如下：
+分析日志后发现，如果多线程场景中会crash。复现代码如下：
 ```Swift
 DispatchQueue(label: "thread1").async {
 	DataBase.dbManagedObjectContext(.privateQueueConcurrencyType).hub.performAndWait { context in
@@ -56,11 +56,11 @@ DispatchQueue(label: "thread2").async {
 	}
 }
 ```
-这个crash的原因是因为`NSFetchRequest`默认取到的数据是`isFault`(惰值)，在第二个线程中获取到的`obj`对象的数据并没有被填充，log如下：
+这个crash的原因是因为`NSFetchRequest`默认取到的数据是一个惰值`isFault`，thread2线程中获取到的`obj`对象的数据并没有被填充，log如下：
 > (lldb) po obj
 > <Person: 0x281db33e0> (entity: Person; id: 0x8a131193d2f7372b <x-coredata://119BDD54-F921-44E8-8FB9-E5CD11BEA831/Person/p5>; data: <fault>)
 
-`print(obj.abstract)`时因`Person`对象的属性`modified`是`Date`类型，`obj`对象的所有属性值均为`nil`，Swift中`nil转Data造成了crash`。
+`print(obj.abstract)`时因`Person`对象的属性`modified`是`Date`类型，`obj`对象的所有属性值均为`nil`，Swift中`nil转非可选Date造成了crash`。
 
 ### 解决方案1（无效）
 
@@ -70,7 +70,7 @@ freq.returnsObjectsAsFaults = false
 ```
 验证后发现数据还是和之前一致，返回的是惰值。
 
-个人猜测可能是`NSManagedObjectContext`继承自`parent`，苹果为了性能设计成内存中已存在的数据并不会填充，而是返回了惰值。
+个人猜测可能是`NSManagedObjectContext`继承自`parent`即：`NSPersistentContainer.viewContext`，苹果为了性能设计成内存中已存在的数据并不会填充，而是返回了惰值。转换过程中crash。
 
 ### 解决方案2（有效）
 
@@ -89,13 +89,14 @@ internal static func dbManagedObjectContext(_ concurrencyType: NSManagedObjectCo
 	return ctx
 }
 ```
-同时设置`returnsObjectsAsFaults`为`false`，并改造`NSManagedObjectContext`继承关系后，crash被fix掉。
+同时设置`returnsObjectsAsFaults`为`false`，并改造`NSManagedObjectContext`继承关系后，crash被fix。
+
 大家有更好的方案，可以一起探讨。
 
 ### 后记
-Core Data苹果迭代多年，性能易用性已经不可同日而语，iOS开发的同学再数据持久化选择方案上可以优先考虑。
+`Core Data`苹果已迭代多年，性能及易用性已经不可同日而语，iOS开发的同学如果有数据持久化需求，可优先考虑`Core Data`。
 
-复现demo参见我的[Github](https://github.com/ifbear/coredatademofixcrash.git)
+复现Demo参见[Github](https://github.com/ifbear/coredatademofixcrash.git)
 
 开发文档参见[Core Data](https://developer.apple.com/documentation/coredata)
 
