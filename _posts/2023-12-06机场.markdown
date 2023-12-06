@@ -1,0 +1,38 @@
+---
+layout:     post
+title:      "机场"
+subtitle:   " \"好用的机场\""
+date:       2023-12-06 10:47:00
+author:     "ifbear"
+header-img: "img/home-bg.jpg"
+tags:
+    - other
+
+---
+
+# 机场推荐
+
+### 奈云机场
+
+- 稳定中转机场
+- 专线游戏加速机场
+- SSR/V2ray/Trojan 节点
+
+奈云是一家成立于2021年末的翻墙机场，提供 Shaowsocks 、 V2ray（vmess） 和 Trojan 翻墙协议节点，拥有自己的托管服务器，节点有家宽原生IP地址，官方承诺解锁流媒体。奈云机场除了有常规套餐之外，也有不限时长的按量付费套餐提供。
+
+服务器：香港、日本、台湾、新加坡、美国、韩国、英国、加拿大、泰国、阿根廷、印度、墨西哥、澳大利亚、土耳其、俄罗斯、越南、菲律宾、南非、德国、迪拜、乌克兰、希腊、巴西 机场节点。
+
+**套餐价格：**
+
+- Basic – 基础版：￥128/年，168G流量/月。
+- Pro – 进阶版：￥28/月，388G流量。
+- Max – 专业版：￥49/月，788G流量。
+
+**软件选择：**
+
+- Windows 系统：奈云 Windows客户端；Clash for Windows
+- macOS 系统：奈云 Mac 客户端；ClashX
+- 安卓系统：奈云安卓客户端；Clash
+- iOS：Shadowrocket；Stash（Clash for iOS）
+
+[奈云官网](https://www.v2ny.top/#/register?code=cgXsxjLY) ｜ [奈云机场怎么样？](https://clashjichang.com/how-about-naiun/) 
