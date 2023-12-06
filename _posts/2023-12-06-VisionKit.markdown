@@ -57,7 +57,7 @@ tags:
   try? handler.perform([request])
   ```
 
-  <img src="https://github.com/ifbear/ifbear.github.io/blob/main/_posts/2023-12-06-VisionKit.assets/IMG_2939.jpg" alt="IMG_2939" style="zoom:25%;" />
+  <img src="https://raw.githubusercontent.com/ifbear/ifbear.github.io/main/_posts/2023-12-06-VisionKit.assets/IMG_2939.jpg" alt="IMG_2939" style="zoom:25%;" />
 
   ```swift
   // 显示面部识别框
@@ -372,7 +372,7 @@ tags:
   }
   ```
 
-  <img src="https://github.com/ifbear/ifbear.github.io/blob/main/_posts/2023-12-06-VisionKit.assets/IMG_D15077B3EAFF-1-1856835.jpeg" alt="IMG_D15077B3EAFF-1" style="zoom:25%;" />
+  <img src="https://raw.githubusercontent.com/ifbear/ifbear.github.io/main/_posts/2023-12-06-VisionKit.assets/IMG_D15077B3EAFF-1-1856835.jpeg" alt="IMG_D15077B3EAFF-1" style="zoom:25%;" />
 
 ​		
 
