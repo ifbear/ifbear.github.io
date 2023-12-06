@@ -6,7 +6,7 @@ date:       2023-12-06 15:20:00
 author:     "ifbear"
 header-img: "img/home-bg.jpg"
 tags:
-    - other
+    - iOS
 
 
 ---
